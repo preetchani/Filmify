@@ -1,10 +1,11 @@
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import { useHomeFetch } from '../hooks/useHomeFetch';
 import { POSTER_SIZE,BACKDROP_SIZE,IMAGE_BASE_URL } from '../config';
 import NotFound from '../images/no_image.jpg';
 import MainSection from './MainSection/mainSection';
 import Grid from './Grid/grid';
 import Thumb from './Thumbnails/thumb';
+import Spinner from './Spinner/spinner'
 const Home=()=>{
    const {state,loading,error} = useHomeFetch();
     //console.log(`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`);
@@ -28,7 +29,7 @@ const Home=()=>{
              movieId={movies.id}/>
         ))}
         </Grid>
-        
+        <Spinner/>
         </>
     )
 }
