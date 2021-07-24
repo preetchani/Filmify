@@ -5,9 +5,10 @@ import NotFound from '../images/no_image.jpg';
 import MainSection from './MainSection/mainSection';
 import Grid from './Grid/grid';
 import Thumb from './Thumbnails/thumb';
-import Spinner from './Spinner/spinner'
+import Spinner from './Spinner/spinner';
+import SearchBar from './SearchBar/searchBar';
 const Home=()=>{
-   const {state,loading,error} = useHomeFetch();
+   const {state,loading,error,setSearchTerm} = useHomeFetch();
     //console.log(`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`);
     return (
         <>
@@ -20,6 +21,7 @@ const Home=()=>{
             />
             :null
         }
+        <SearchBar setSearchTerm={setSearchTerm}/>
         <Grid header="Popular Movies">
         {state.results.map(movies=>(
             <Thumb
