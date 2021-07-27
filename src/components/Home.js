@@ -7,9 +7,12 @@ import Grid from './Grid/grid';
 import Thumb from './Thumbnails/thumb';
 import Spinner from './Spinner/spinner';
 import SearchBar from './SearchBar/searchBar';
+import Button from './Button/button';
 const Home=()=>{
-   const {state,loading,error,searchTerm,setSearchTerm} = useHomeFetch();
+   const {state,loading,error,searchTerm,setSearchTerm,setIsLoadingMore} = useHomeFetch();
     //console.log(`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`);
+
+    if(error) return <dib>Something went wrong...</dib>
     return (
         <>
         
@@ -31,7 +34,10 @@ const Home=()=>{
              movieId={movies.id}/>
         ))}
         </Grid>
-        <Spinner/>
+        {loading && <Spinner/>}
+        {state.page < state.total_pages && !loading && (
+            <Button text="Load More" callback={()=> setIsLoadingMore(true)}/>
+        )}
         </>
     )
 }
