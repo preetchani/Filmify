@@ -1,16 +1,22 @@
 import React from 'react';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Header from './components/Header/header';
 import Home from './components/Home';
 import {GlobleStyle} from './GlobalStyle';
+import Movie from './components/Movie';
+import NotFound from './components/NotFound';
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
+const App =() => (
+    <Router>
+       <Header/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/:movieID' element={<Movie/>} />
+          <Route path='/*' element={<NotFound/>} />
+        </Routes>
       <Home/>
       <GlobleStyle/>
-    </div>
-  );
-}
+    </Router>
+);
 
 export default App;
