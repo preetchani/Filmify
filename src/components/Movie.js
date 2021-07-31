@@ -5,6 +5,7 @@ import Spinner from './Spinner/spinner'
 import Grid from './Grid/grid';
 import NoImage from '../images/no_image.jpg'
 import BreadCrumb from './BreadCrumb/breadcrum';
+import MovieInfo from './MovieInfo/movieInfo';
 import { useMovieFetch } from '../hooks/useMovieFetch';
 
 const Movie = ()=> {
@@ -17,6 +18,7 @@ const Movie = ()=> {
     return(
         <>
            <BreadCrumb movieTitle={movie.original_title}/>
+           <MovieInfo movie={movie}/>
         </>
 
 )
