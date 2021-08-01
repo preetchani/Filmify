@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Thumb from '../Thumbnails/thumb';
-
 import { IMAGE_BASE_URL,POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.jpg';
 import { Wrapper,Content,Text } from './MovieInfo.style';
