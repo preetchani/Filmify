@@ -7,6 +7,7 @@ import NoImage from '../images/no_image.jpg'
 import BreadCrumb from './BreadCrumb/breadcrum';
 import MovieInfo from './MovieInfo/movieInfo';
 import MovieInfoBar from './MovieInfoBar/movieInfoBar';
+import Actor from './Actor/actor';
 import { useMovieFetch } from '../hooks/useMovieFetch';
 
 const Movie = ()=> {
@@ -21,6 +22,18 @@ const Movie = ()=> {
            <BreadCrumb movieTitle={movie.original_title}/>
            <MovieInfo movie={movie}/>
            <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue}/>
+           <Grid header='Actors'>
+               {movie.actors.map(a=>(
+                   <Actor
+                   key={a.credit_id}
+                   name={a.name}
+                   character={a.character}
+                   imageUrl={
+                       a.profile_path?`${IMAGE_BASE_URL}${POSTER_SIZE}${a.profile_path}`:NoImage
+                   }
+                   />
+               ))}
+           </Grid>
         </>
 
 )

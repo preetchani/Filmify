@@ -28,7 +28,12 @@ margin: 0 auto;
         :last-child{
             margin-right: 0;
         }
-        
     }
+    @media screen and (max-width: 768px){
+        display: block;
 
+        .column{
+            margin: 20px 0;
+        }
+    }
 `;
